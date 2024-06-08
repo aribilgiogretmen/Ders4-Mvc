@@ -1,0 +1,48 @@
+﻿@model ContactFormViewModel
+
+<h3>İletişim Formu</h3>
+
+<form asp-action="Index" method="post" class="needs-validation" novalidate>
+
+
+        <div class="mb-3">
+
+            <label asp-for="Name"></label>
+            <input type="text" class="form-control" id="name" name="Name" asp-for="Name" />
+            <span class="text-danger" asp-validation-for="Name"></span>
+
+        </div>
+
+    <div class="mb-3">
+
+        <label asp-for="Email"></label>
+        <input type="text" class="form-control" id="email" name="Email" asp-for="Email" />
+        <span class="text-danger" asp-validation-for="Email"></span>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="Message"></label>
+        <input type="text" class="form-control" id="message" name="Message" asp-for="Message" />
+        <span class="text-danger" asp-validation-for="Message"></span>
+
+    </div>
+
+
+    <div class="mb-3">
+
+        <label for="contactTopicFormId" asp-for="ContactTopicId" class="form-label"></label>
+        <select class="form-select" id="contactTopicId" name="ContactTopicId" asp-for="ContactTopicId" asp-items="@(new SelectList(Model.ContactTopics,"Id","Name"))">
+
+            <option value="">Bir Şeyler Seçin</option>
+
+        </select>
+
+    </div>
+
+
+
+
+
+</form>
