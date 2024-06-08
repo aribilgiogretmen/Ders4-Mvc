@@ -1,0 +1,49 @@
+﻿@model ContactForm
+
+<h2>İletişim Formu</h2>
+
+@if (TempData["Message"]!=null)
+{
+    <div class="alert alert-success">
+
+        @TempData["Message"]
+
+    </div>
+}
+
+<form asp-action="Index" method="post" class="needs-validation" novalidate>
+
+    <div class="mb-3">
+
+        <label asp-for="Name"></label>
+        <input type="text" class="form-control" id="name" name="Name" asp-for="Name" />
+        <span class="text-danger" asp-validation-for="Name"></span>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="Email"></label>
+        <input type="text" class="form-control" id="email" name="Email" asp-for="Email" />
+        <span class="text-danger" asp-validation-for="Email"></span>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="Message"></label>
+        <input type="text" class="form-control" id="Message" name="Message" asp-for="Message" />
+        <span class="text-danger" asp-validation-for="Message"></span>
+
+    </div>
+
+    <div class="mb-3">
+
+        <button type="submit" class="btn btn-success">Kaydet</button>
+    </div>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"></partial>
+}

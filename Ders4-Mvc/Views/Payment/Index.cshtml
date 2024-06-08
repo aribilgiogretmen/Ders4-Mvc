@@ -1,0 +1,58 @@
+﻿@model PaymentForm
+
+
+<h2>Ödeme Formu</h2>
+
+@if (TempData["Message"]!=null)
+{
+    <div class="alert alert-success">
+
+        @TempData["Message"]
+
+    </div>
+}
+
+<form asp-action="Index" method="post" class="needs-validation" novalidate>
+
+    <div class="mb-3">
+
+        <label asp-for="CardHolderName" class="form-label"></label>
+        <input type="text" class="form-control" id="cardHolderNane" name="CardHolderName" asp-for="CardHolderName" />
+        <span class="text-danger" asp-validation-for="CardHolderName"></span>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="CardNumber" class="form-label"></label>
+        <input type="text" class="form-control" id="cardNumber" name="CardNumber" asp-for="CardNumber" />
+        <span class="text-danger" asp-validation-for="CardNumber"></span>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="ExpirationDate" class="form-label"></label>
+        <input type="text" class="form-control" id="expirationDate" name="ExpirationDate" asp-for="ExpirationDate" />
+        <span class="text-danger" asp-validation-for="ExpirationDate"></span>
+
+    </div>
+
+    <div class="mb-3">
+
+        <label asp-for="CVV" class="form-label"></label>
+        <input type="text" class="form-control" id="cVV" name="CVV" asp-for="CVV" />
+        <span class="text-danger" asp-validation-for="CVV"></span>
+
+    </div>
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+
+
+</form>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial"></partial>
+
+}
